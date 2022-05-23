@@ -50,3 +50,23 @@ button {
 .menu{
     font-size:12px;
 }
+
+.tabla{
+    margin-top: 4%;
+}
+
+.container-fluid{
+    width: 95%;
+}
+
+.table th{
+    padding: 2%;
+}
+
+.table td{
+    padding: 2%;
+}
+
+.input-brand{
+    width: 20%;
+}

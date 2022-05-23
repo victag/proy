@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="icon" type="image/png" href="img/favicon.png" />
-        <link href="Sets/CSS/Login.css" rel="stylesheet" type=""/>
+        <link href="Sets/CSS/Login.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
        <div class="login-box">
@@ -19,7 +19,7 @@
                 <h1>Ingrese su Usuario</h1>
 
                 <form action="">
-                    <label for="">Correo</label>
+                    <label>Correo</label>
                     <input class="in" type="text" placeholder="ingrese su correo">
 
                     <label for="password">Contraseña</label>
