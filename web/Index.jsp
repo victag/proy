@@ -1,3 +1,5 @@
+<%@page import="Modelo.Empleado"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -301,26 +303,28 @@
                         <th>Fecha ingreso</th>
                         <th>Sueldo</th>
                       </tr>
+                      <%
+                        ArrayList<Empleado> lista=(ArrayList<Empleado>)request.getAttribute("lista");
+                        for(int i=0; i<lista.size();i++)
+                        {
+                            Empleado em=lista.get(i);    
+                       %>
+                        <tr>
+                            <td><%=em.getIdEmp()%></td>
+                            <td><%=em.getNom()%></td>
+                            <td><%=em.getApellido()%></td>
+                            <td><%=em.getEdad()%></td>
+                            <td><%=em.getSexo()%></td>
+                            <td><%=em.getDNI()%></td>
+                            <td><%=em.getTelefono()%></td>
+                            <td><%=em.getAAAAMMMMDDDD()%></td>
+                            <td><%=em.getSueldo()%></td>
+                        </tr>
+                        <%
+                        }
+                        %>
                     </thead>
-                    <tr>
-                        <th>     </th>
-                        <th>     </th>
-                        <th>     </th>
-                        <th>     </th>
-                        <th>     </th>  
-                        <th>     </th>
-                    </tr>
-                     <tr>
-                        <th>     </th>
-                        <th>     </th>
-                        <th>     </th>
-                        <th>     </th>
-                        <th>     </th>
-                        <th>     </th>
-                    </tr>
-                    
-                      
-                    </tfoot>
+                   
                   </table>
                 </div>
               </div>
