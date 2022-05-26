@@ -20,7 +20,7 @@
                     <input class="in" type="text" name="txtUsu" placeholder="ingrese su usuario" required>
 
                     <label for="password">Contraseña</label>
-                    <input class="in" type="text"  name="txtPass" placeholder="Ingrese su contraseña" required><br><br>
+                    <input class="in" type="password"  name="txtPass" placeholder="Ingrese su contraseña" required><br><br>
                     <input type="submit" class="btn btn-warning mt-2" name="btn-login" value="Ingresar">
                    
                 </form>

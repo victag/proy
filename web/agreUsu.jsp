@@ -1,5 +1,4 @@
-<%@page import="Modelo.Empleado"%>
-<%@page import="java.util.ArrayList"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +19,6 @@
          <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"  href="#">FERRETERIA LILY</a>
 
          <div class="collapse navbar-collapse" id="">
-
            <form class="d-flex ms-auto my-3 my-lg-0">
              <div class="input-group">
                <input class="form-control" type="search" placeholder="Buscar" aria-label="Search"/>
@@ -48,19 +46,18 @@
          <nav class="navbar-dark">
            <ul class="navbar-nav">
              <li>
-                 <div class="text-success small fw-bold text-uppercase px-3"> Bienvenido <% %> </div>
+               <div class="text-success small fw-bold text-uppercase px-3"> MENÚ </div>
              </li>
              <li>
                <a href="Index.jsp" class="nav-link px-3 active">
                  <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-                 <span class="me-2">INICIO <i class="fa-solid fa-house-chimney "></i></span>
+                 <span>INICIO <i class="fa-solid fa-house-chimney"></i></span>
                </a>
              </li>
-             </ul>
-         </nav>   
+             
             
              <div class="accordion accordion-flush" id="accordionFlushExample">
-          <div class="accordion-item ">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne">
               <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                 ALMACEN
@@ -150,7 +147,7 @@
                  
         </div>
              
-             <div class="accordion-item">
+        <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingfive">
               <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
                 INVETARIOS
@@ -167,7 +164,7 @@
             </div>
           </div>
              
-             <div class="accordion-item">
+           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingsix">
               <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
                 TRABAJADORES
@@ -184,9 +181,9 @@
 
                 </div>
             </div>
-            </div>      
+            </div>     
              
-             
+               
         </div>
              
             
@@ -197,113 +194,62 @@
         
         
         <main class="mt-5 pt-3">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-12">
-                <h4>SISTEMA DE CONTROL DE INVENTARIO</h4>
-              </div>
-            </div>
-           &nbsp; 
-            <div class="row">
-                
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-primary text-white h-100">
-                    <div class="card-body py-3">PROVEDORES</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-                      <span class="ms-auto">
-                        <i class="bi bi-chevron-right"></i>
-                      </span>
-                    </div>
+            <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4 align="center">SISTEMA DE CONTROL DE INVENTARIO</h4>
                   </div>
                 </div>
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-warning text-dark h-100">
-                    <div class="card-body py-3">VENTAS</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles 
-                      <span class="ms-auto">
-                        <i class="bi bi-chevron-right"></i>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-success text-white h-100">
-                    <div class="card-body py-3">MARCAS DE PRODUCTOS</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
+               &nbsp; 
+               
+                <div class="row">
+      
+                        <div class="col-md-12 mb-3">
+                          <div class="card">
+                            <div class="card-body">
+                                 <div class="conteiner">
+                                     <form action="usuariosController" >
+                                          <table class="table ">
+                                              <tr>
+                                                  <td>Ingrese ID: </td>
+                                                  <td><input type="text" name="txtId" class="form-control" required></td>
+                                                  <td class="texto">Ingrese Usuario: </td>
+                                                  <td><input type="text" name="txtLog" class="form-control" required></td>
+                                              </tr>&nbsp; &nbsp; 
+                                              <tr>
+                                                  <td>Ingrese Contraseña: </td>
+                                                  <td><input type="text" name="txtPass" class="form-control" required></td>
+                                                  <td class="texto">Ingrese Nombre: </td>
+                                                  <td><input type="text" name="txtNom" class="form-control" required></td>
+                                              </tr>&nbsp; &nbsp; 
+                                              <tr>
+                                                  <td>Ingrese Apellido: </td>
+                                                  <td><input type="text" name="txtApe" class="form-control"required></td>
+                                                  <td>Ingrese Genero: </td>
+                                                  <td><input type="text" name="txtGenero" class="form-control" required></td>
+                                              </tr>&nbsp; &nbsp; 
+                                              <tr>
+                                                  <td>Ingrese Edad: </td>
+                                                  <td><input type="text" name="txtEdad" class="form-control" required></td>
+                                                  <td>Ingrese Perfil: </td>
+                                                  <td><input type="text" name="txtPerfil" class="form-control" required></td>
+                                              </tr>&nbsp; &nbsp; 
 
-                    </div>
-                  </div>
-                </div>
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-warning text-white h-100">
-                    <div class="card-body py-3">PRODUCTOS INGRESADOS</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-                    </div>
-                  </div>
-                </div>
+                                              <tr>
+                                                  <td><input type="submit" name="btn" value="Registrar" class="form-control btn-primary mb-3"></td>
+                                              </tr>
+                                              <!-- dato oculto -->
+                                              <input type="hidden" name="US" value="insertar"/>
+                                          </table>
+                                       </form>   
+                                </div>
 
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-danger text-white h-100">
-                    <div class="card-body py-3">CAJA</div>
-                    <div class="deta card-footer d-flex">
-                        <a href="url"> Ver delatalles</a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-primary text-white h-100">
-                    <div class="card-body py-3">APARTADOS</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-                    </div>
-                  </div>
-                </div>
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-primary text-white h-100">
-                    <div class="card-body py-3">COTIZACION</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-primary text-white h-100">
-                    <div class="card-body py-3">ALAMCEN </div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-                    </div>
-                  </div>
-                </div>
-            </div>    
-           
-           
+                            </div>
+                          </div>
+                        </div>
         
-        <div class="row">
-          <div class="col-md-12 mb-3">
-            <div class="card">
-              <div class="card-header">
-                <span><i class="bi bi-table me-2"></i></span> 
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                
-                   
-                  
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-           
-           
-           
-          </div>
         </main>
     </body>
 </html>

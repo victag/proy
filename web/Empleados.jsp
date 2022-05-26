@@ -12,7 +12,7 @@
         <link href="Sets/CSS/Estilos.css" rel="stylesheet" type=""/>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
        <div class="container-fluid">
          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample" >
            <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
@@ -20,7 +20,6 @@
          <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"  href="#">FERRETERIA LILY</a>
 
          <div class="collapse navbar-collapse" id="">
-
            <form class="d-flex ms-auto my-3 my-lg-0">
              <div class="input-group">
                <input class="form-control" type="search" placeholder="Buscar" aria-label="Search"/>
@@ -43,24 +42,23 @@
        </div>
      </nav>
 
-     <div class="offcanvas offcanvas-start sidebar-nav bg-primary" tabindex="-1" id="" >
+     <div class="offcanvas offcanvas-start sidebar-nav bg-dark" tabindex="-1" id="" >
        <div class="offcanvas-body p-0">
          <nav class="navbar-dark">
            <ul class="navbar-nav">
              <li>
-                 <div class="text-success small fw-bold text-uppercase px-3"> Bienvenido <% %> </div>
+               <div class="text-success small fw-bold text-uppercase px-3"> MENÚ </div>
              </li>
              <li>
                <a href="Index.jsp" class="nav-link px-3 active">
                  <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-                 <span class="me-2">INICIO <i class="fa-solid fa-house-chimney "></i></span>
+                 <span>INICIO <i class="fa-solid fa-house-chimney"></i></span>
                </a>
              </li>
-             </ul>
-         </nav>   
+             
             
              <div class="accordion accordion-flush" id="accordionFlushExample">
-          <div class="accordion-item ">
+          <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne">
               <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                 ALMACEN
@@ -120,7 +118,7 @@
             <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <ul>
-                        <li class="lista">Ventas diarias </li>
+                        <li class="lista" >Ventas diarias </li>
                         <li class="lista">Ventas del Mes</li>
                         <li class="lista">ventas Realizadas</li>
                     </ul>
@@ -150,7 +148,7 @@
                  
         </div>
              
-             <div class="accordion-item">
+        <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingfive">
               <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
                 INVETARIOS
@@ -165,26 +163,26 @@
 
                 </div>
             </div>
-          </div>
+         </div>
              
-             <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingsix">
-              <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
-                TRABAJADORES
-              </button>
-            </h2>
-            <div id="flush-collapsesix" class="accordion-collapse collapse" aria-labelledby="flush-headingsix" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                    <ul>
-                        <li class="lista">
-                            <a href="usuariosController?US=listar"> Lista de Usuarios</a>
-                        </li>
-                        <li class="lista"><a href="empleadosController?op=listar">Trabajadores</a></li>
-                    </ul>
+          <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingsix">
+                  <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
+                    TRABAJADORES
+                  </button>
+                </h2>
+                <div id="flush-collapsesix" class="accordion-collapse collapse" aria-labelledby="flush-headingsix" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul>
+                            <li class="lista">
+                                <a href="usuariosController?US=listar"> Lista de Usuarios</a>
+                            </li>
+                            <li class="lista"><a href="empleadosController?op=listar">Trabajadores</a></li>
+                        </ul>
 
+                    </div>
                 </div>
-            </div>
-            </div>      
+            </div>  
              
              
         </div>
@@ -192,111 +190,73 @@
             
          </nav>
        </div>
-     </div>
-    
         
         
         <main class="mt-5 pt-3">
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
-                <h4>SISTEMA DE CONTROL DE INVENTARIO</h4>
+                <h4 align="center">SISTEMA DE CONTROL DE INVENTARIO</h4>
               </div>
             </div>
-           &nbsp; 
+          </div>    
+           &nbsp;   
+           <button class="btn-sm bg-dark"> <a href="Empleados.jsp" class="nav-link px-3 active">Agregar nuevo trabajador</a></button>
+           &nbsp;
             <div class="row">
-                
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-primary text-white h-100">
-                    <div class="card-body py-3">PROVEDORES</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-                      <span class="ms-auto">
-                        <i class="bi bi-chevron-right"></i>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-warning text-dark h-100">
-                    <div class="card-body py-3">VENTAS</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles 
-                      <span class="ms-auto">
-                        <i class="bi bi-chevron-right"></i>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-success text-white h-100">
-                    <div class="card-body py-3">MARCAS DE PRODUCTOS</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-
-                    </div>
-                  </div>
-                </div>
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-warning text-white h-100">
-                    <div class="card-body py-3">PRODUCTOS INGRESADOS</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-                    </div>
-                  </div>
-                </div>
-
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-danger text-white h-100">
-                    <div class="card-body py-3">CAJA</div>
-                    <div class="deta card-footer d-flex">
-                        <a href="url"> Ver delatalles</a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-primary text-white h-100">
-                    <div class="card-body py-3">APARTADOS</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-                    </div>
-                  </div>
-                </div>
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-primary text-white h-100">
-                    <div class="card-body py-3">COTIZACION</div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="trec col-md-3 mb-3">
-                  <div class="card bg-primary text-white h-100">
-                    <div class="card-body py-3">ALAMCEN </div>
-                    <div class="card-footer d-flex">
-                      Ver detalles
-                    </div>
-                  </div>
-                </div>
-            </div>    
+                  
+            
            
-           
-        
         <div class="row">
           <div class="col-md-12 mb-3">
             <div class="card">
               <div class="card-header">
-                <span><i class="bi bi-table me-2"></i></span> 
+                <span><i class="bi bi-table me-2"></i></span> TRABAJADORES
               </div>
+              
               <div class="card-body">
                 <div class="table-responsive">
-                
                    
+                    <table class="table">
+                    
+                      <tr>
+                        <th>Id</th>  
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad </th>
+                        <th>sexo</th>
+                        <th>DNI</th>
+                        <th>Telefono</th>
+                        <th>Fecha ingreso</th>
+                        <th>Sueldo</th>
+                      </tr>
+                      <%
+                        ArrayList<Empleado> lista=(ArrayList<Empleado>)request.getAttribute("lista");
+                        for(int i=0; i<lista.size();i++)
+                        {
+                            Empleado em=lista.get(i);    
+                       %>
+                        <tr>
+                            <td><%=em.getIdEmp()%></td>
+                            <td><%=em.getNom()%></td>
+                            <td><%=em.getApellido()%></td>
+                            <td><%=em.getEdad()%></td>
+                            <td><%=em.getSexo()%></td>
+                            <td><%=em.getDNI()%></td>
+                            <td><%=em.getTelefono()%></td>
+                            <td><%=em.getFecha()%></td>
+                            <td><%=em.getSueldo()%></td>
+                        </tr>
+                        <%
+                        }
+                        %>
                   
+                   
+                  </table>
+                   
                 </div>
               </div>
+               
             </div>
           </div>
         </div>
