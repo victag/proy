@@ -1,5 +1,24 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page  session="true" %>
+<%
+    String usuario="";
+    String perfil="";
+    
+    HttpSession sesionOK=request.getSession();
+    if(sesionOK.getAttribute("usuario")==null)
+    {
+%>        
+        <jsp:forward page="Login.jsp">
+            <jsp:param name="msg2" value="Iniciar sesion obligatoriamente"/>
+        </jsp:forward>
+<%  }
+    else
+    {
+       usuario=(String)sesionOK.getAttribute("usuario");
+       perfil=(String)sesionOK.getAttribute("perfil");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +35,7 @@
          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample" >
            <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
          </button>
-         <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"  href="#">FERRETERIA LILY</a>
+         <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"  href="Index.jsp">FERRETERIA LILY</a>
 
          <div class="collapse navbar-collapse" id="">
            <form class="d-flex ms-auto my-3 my-lg-0">
@@ -33,7 +52,7 @@
                  <i class="fas fa-user"></i>
                </a>
                <ul class="dropdown-menu dropdown-menu-end">
-                   <li><a class="dropdown-item" href="Login.jsp">Cerrar cesión</a></li>
+                   <li><a class="dropdown-item" href="logiController?op=cerrar">Cerrar cesión</a></li>
                </ul>
              </li>
            </ul>
@@ -46,7 +65,7 @@
          <nav class="navbar-dark">
            <ul class="navbar-nav">
              <li>
-               <div class="text-success small fw-bold text-uppercase px-3"> MENÚ </div>
+                <div class="text-success small fw-bold text-light px-3"> BIENVENIDO <%=usuario %> </div>
              </li>
              <li>
                <a href="Index.jsp" class="nav-link px-3 active">
@@ -108,6 +127,8 @@
                 </div>
             </div>
           </div>
+                 
+           <% if(perfil.equals("admin")){ %>       
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingThree">
               <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
@@ -125,6 +146,10 @@
                 </div>
             </div>
           </div>
+          <%
+             }
+             %>
+             
                  
         <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingfour">
@@ -164,6 +189,7 @@
             </div>
           </div>
              
+           <% if(perfil.equals("admin")){ %>  
            <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingsix">
               <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
@@ -178,7 +204,10 @@
                     </ul>
                 </div>
             </div>
-            </div>     
+            </div> 
+           <%
+             }
+             %>
              
                
         </div>

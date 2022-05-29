@@ -12,6 +12,10 @@
         <servlet-name>usuariosController</servlet-name>
         <servlet-class>Controlador.usuariosController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>logiController</servlet-name>
+        <servlet-class>Controlador.logiController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>usuariosController</servlet-name>
         <url-pattern>/usuariosController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logiController</servlet-name>
+        <url-pattern>/logiController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

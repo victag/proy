@@ -120,8 +120,16 @@ public class empleadosController extends HttpServlet {
                
         }
         else if(op.equals("eliminar"))
-        {
-            
+        { 
+            try 
+            {
+                 PreparedStatement  sta=ConDB.getConnection().prepareStatement("delete from empleado where id=");
+               
+            } 
+            catch (Exception e) 
+            {
+                
+            }
         }
                
         
