@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="Modelo.categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,11 +12,12 @@
         <link href="Sets/CSS/Estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        
         <!-- Navegador y Sidebar -->
         <%@ include file="nav.jsp"%>
         <main class="mt-5 pt-3">
             <div class="container-fluid">
-                
+
                 <!-- Titulo-->
                 <div class="row">
                     <div class="col-md-12">
@@ -25,43 +28,47 @@
                 <!-- Buscador y Ventana Modal -->
                 <div class="d-flex align-items-center justify-content-between">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar Categoria</button>
-                    
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">Agregar Categoria</button>
+
                     <!-- Modal -->                   
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Agregar Catgoria</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
+                                <form method="post" action="CategoriaController?op=insertar">
+                                    
+                                    <!-- Titulo del modal --> 
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="ModalLabel">Agregar Categoria</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <!-- Cuerpo del modal --> 
+                                    <div class="modal-body">                                   
                                         <div class="row">
                                             <div class="col-md-6 form-group">
-                                                <label for="recipient-name" class="col-form-label">Categoria</label>
-                                                <input type="text" class="form-control" id="recipient-name">
+                                                <label for="categoria" class="col-form-label">Categoria</label>
+                                                <input type="text" class="form-control" id="categoria" name="txtCat">
                                             </div>
                                             <div class="col-md-6 form-group">
-                                                <label for="message-text" class="col-form-label">Stock</label>
-                                                <input type="text" class="form-control" id="message-text">
+                                                <label for="stock" class="col-form-label">Stock</label>
+                                                <input type="text" class="form-control" id="stock" name="txtStock">
                                             </div>
                                             <div class="col-md-6 form-group">
-                                                <label for="message-text" class="col-form-label">Precio</label>
-                                                <input type="text" class="form-control" id="message-text">
+                                                <label for="precio" class="col-form-label">Precio</label>
+                                                <input type="text" class="form-control" id="precio" name="txtPrecio">
                                             </div>
                                         </div>
 
-                                    </form>
-                                </div>
-                                <!-- Agregar Categoria -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Agregar</button>
-                                </div>
+                                        <!-- Agregar Categoria -->
+                                        <div class="form-group mt-3">
+                                            <button type="submit" class="btn btn-primary">Agregar</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Buscador -->
                     <div class="input-brand input-group mt-3">
                         <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="button-addon2">
@@ -81,28 +88,73 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%
+                                ArrayList<categoria> lista = (ArrayList<categoria>) request.getAttribute("lista");
+                                for (int i = 0; i < lista.size(); i++) {
+                                    categoria cat = lista.get(i);
+
+                            %>
                             <tr>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>Otto</td>
-                                <td><%@ include file="button.jsp"%></td>
+                                <td><%=cat.getNombre()%></td>
+                                <td><%=cat.getStock()%></td>
+                                <td><%=cat.getPrecio()%></td>
+                                <td>
+                                    <!-- Toolbar --> 
+                                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                        <div class="btn-group mr-2" role="group" aria-label="Basic example">
+                                            
+                                            <!-- Button trigger modal - Editar-->
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalEditar<%=i%>">Editar</button>
+                                            <div class="modal fade" id="modalEditar<%=i%>" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <form method="post" action="CategoriaController?op=editar&idC=<%=cat.getCodigo()%>">
+                                                            
+                                                            <!-- Titulo del modal -->
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="ModalLabel">Editar Categoria</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            
+                                                            <!-- Cuerpo del modal -->
+                                                            <div class="modal-body">                                   
+                                                                <div class="row">
+                                                                    <div class="col-md-6 form-group">
+                                                                        <label for="categoria" class="col-form-label">Categoria</label>
+                                                                        <input type="text" class="form-control" id="categoria" name="txtCatEdit" value="<%=cat.getNombre()%>">
+                                                                    </div>
+                                                                    <div class="col-md-6 form-group">
+                                                                        <label for="stock" class="col-form-label">Stock</label>
+                                                                        <input type="text" class="form-control" id="stock" name="txtStockEdit" value="<%=cat.getStock()%>">
+                                                                    </div>
+                                                                    <div class="col-md-6 form-group">
+                                                                        <label for="precio" class="col-form-label">Precio</label>
+                                                                        <input type="text" class="form-control" id="precio" name="txtPrecioEdit" value="<%=cat.getPrecio()%>">
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Editar Categoria -->
+                                                                <div class="form-group mt-3">
+                                                                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                    
+                                            <!-- Button trigger modal - Eliminar-->
+                                            <button type="button" class="btn btn-danger">Eliminar</button>                                         
+                                        </div>                           
+                                    </div>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>Otto</td>
-                                <td><%@ include file="button.jsp"%></td>
-                            </tr>
-                            <tr>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>Otto</td>
-                                <td><%@ include file="button.jsp"%></td>
-                            </tr>
+                            <%
+                                }
+                            %>
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </main>
     </body>

@@ -1,3 +1,4 @@
+<!-- Barra de Navegacion --> 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample" >
@@ -38,6 +39,7 @@
     </div>
 </nav>
 
+<!-- Sidebar --> 
 <div class="offcanvas offcanvas-start sidebar-nav bg-dark" tabindex="-1">
     <div class="offcanvas-body p-0">
         <nav class="navbar-dark">
@@ -63,9 +65,9 @@
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul>
-                                <li class="lista"> <a href="categoria.jsp" >Categorias</a></li>
-                                <li class="lista"> <a href="marcas.jsp">Marcas</a></li>
-                                <li class="lista"> <a href="productos.jsp">Productos</a></li>
+                                <li class="lista"> <a href="CategoriaController?op=listar" >Categorias</a></li>
+                                <li class="lista"> <a href="MarcasController?op=listar">Marcas</a></li>
+                                <li class="lista"> <a href="ProductoController?op=listar">Productos</a></li>
                             </ul>
                         </div>
                     </div>
@@ -80,7 +82,7 @@
                     <div id="flush-collapseseven" class="accordion-collapse collapse" aria-labelledby="flush-headingseven" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul>
-                                <li class="lista"> <a href="precederos.jsp" >Lista de productos</a></li>
+                                <li class="lista"> <a href="PerecederosController?op=listar" >Lista de productos</a></li>
                                 
                             </ul>
 

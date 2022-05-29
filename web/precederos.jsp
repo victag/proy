@@ -1,3 +1,5 @@
+<%@page import="Modelo.perecedero"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,55 +16,57 @@
         <%@ include file="nav.jsp"%>
         <main class="mt-5 pt-3">
             <div class="container-fluid">
-
-                <!-- Titulo -->
                 <div class="row">
+                    <!-- Titulo -->
                     <div class="col-md-12">
-                        <h4>PRODUCTOS PERECEDEROS</h4>
+                        <h4>PRODUCTOS</h4>
                     </div>
                 </div> 
 
-                <!-- Buscador y Ventana modal -->
+                <!-- Buscador y Ventana Modal -->
                 <div class="d-flex align-items-center justify-content-between">
-
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar Producto</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">Agregar Producto</button>
 
                     <!-- Modal -->                   
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Agregar Catgoria</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="row">
+                                <form method="post" action="PerecederosController?op=insertar">
+                                    
+                                    <!-- Titulo del modal -->
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="ModalLabel">Agregar Producto</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    
+                                    <!-- Cuerpo del modal -->
+                                    <div class="modal-body">                                   
+                                        <div class="row">                              
                                             <div class="col-md-6 form-group">
-                                                <label for="recipient-name" class="col-form-label">Producto</label>
-                                                <input type="text" class="form-control" id="recipient-name">
+                                                <label for="producto" class="col-form-label">Producto</label>
+                                                <input type="text" class="form-control" id="producto" name="txtProd">
                                             </div>
                                             <div class="col-md-6 form-group">
-                                                <label for="message-text" class="col-form-label">Categoria</label>
-                                                <input type="text" class="form-control" id="message-text">
+                                                <label for="cantidad" class="col-form-label">Cantidad</label>
+                                                <input type="text" class="form-control" id="cantdad" name="txtCant">
                                             </div>
                                             <div class="col-md-6 form-group">
-                                                <label for="message-text" class="col-form-label">Estado</label>
-                                                <input type="text" class="form-control" id="message-text">
+                                                <label for="estado" class="col-form-label">Estado</label>
+                                                <input type="text" class="form-control" id="estado" name="txtEst">
                                             </div>
                                             <div class="col-md-6 form-group">
-                                                <label for="message-text" class="col-form-label">Observación</label>
-                                                <input type="text" class="form-control" id="message-text">
+                                                <label for="observacion" class="col-form-label">Observacions</label>
+                                                <input type="text" class="form-control" id="observacion" name="txtObsv">
                                             </div>
                                         </div>
 
-                                    </form>
-                                </div>
-                                <!-- Agregar producto -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Agregar</button>
-                                </div>
+                                        <!-- Agregar Categoria -->
+                                        <div class="form-group mt-3">
+                                            <button type="submit" class="btn btn-primary">Agregar</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -79,38 +83,35 @@
                     <table class="table">
                         <thead class="table-light">
                             <tr>
-                                <th scope="col">PRODUCTO</th>
+                                <th scope="col">CODIGO</th>
+                                <th scope="col">PRODUCTO</th>                              
+                                <th scope="col">CANTIDAD</th>
                                 <th scope="col">CATEGORIA</th>
                                 <th scope="col">ESTADO</th>
                                 <th scope="col">OBSERVACIÓN</th>
                             </tr>
                         </thead>
                         <tbody>
+                                <%
+                                    ArrayList<perecedero> lista = (ArrayList<perecedero>) request.getAttribute("lista");
+                                    for (int i = 0; i < lista.size(); i++) {
+                                        perecedero per = lista.get(i);
+                                %>
                             <tr>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-
+                                <td><%=per.getCodigo()%></td>
+                                <td><%=per.getNombre()%></td>
+                                <td><%=per.getCantidad()%></td>
+                                <td><%=per.getCategoria()%></td>
+                                <td><%=per.getEstado()%></td>
+                                <td><%=per.getObservacion()%></td>
                             </tr>
-                            <tr>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>@mdo</td>
-
-                            </tr>
-                            <tr>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                <td>@mdo</td>
-
-                            </tr>
+                            <%
+                                }
+                            %>
+                             
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </main>
     </body>

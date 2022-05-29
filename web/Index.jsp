@@ -1,3 +1,5 @@
+<%@page import="Modelo.Empleado"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -75,9 +77,9 @@
                             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <ul>
-                                        <li class="lista"> <a href="categoria.jsp" >Categorias</a></li>
-                                        <li class="lista"> <a href="marcas.jsp">Marcas</a></li>
-                                        <li class="lista"> <a href="productos.jsp">Productos</a></li>
+                                        <li class="lista"> <a href="CategoriaController?op=listar" >Categorias</a></li>
+                                        <li class="lista"> <a href="MarcasController?op=listar">Marcas</a></li>
+                                        <li class="lista"> <a href="ProductoController?op=listar">Productos</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -92,7 +94,7 @@
                             <div id="flush-collapseseven" class="accordion-collapse collapse" aria-labelledby="flush-headingseven" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <ul>
-                                        <li class="lista"> <a href="precederos.jsp" >Lista de productos</a></li>
+                                        <li class="lista"> <a href="PerecederosController?op=listar">Lista de productos</a></li>
                                     </ul>
 
                                 </div>
@@ -155,14 +157,14 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingfive">
                             <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
-                                INVETARIOS
+                                INVENTARIOS
                             </button>
                         </h2>
                         <div id="flush-collapsefive" class="accordion-collapse collapse" aria-labelledby="flush-headingfive" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <ul>
                                     <li class="lista">Abrir nuevo inventario</li>
-                                    <li class="lista">Eliminar inventarion</li>
+                                    <li class="lista">Eliminar inventario</li>
                                 </ul>
 
                             </div>
@@ -188,6 +190,8 @@
                 </nav>
             </div>
         </div>
+
+
 
         <main class="mt-5 pt-3">
             <div class="container-fluid">
@@ -300,6 +304,7 @@
                         </div>
                     </div>
                 </div>
+                <<<<<<< HEAD
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <div class="card">
@@ -335,6 +340,76 @@
                                             <th>     </th>
                                             <th>     </th>
                                         </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                                Area 
+                            </div>
+                            <div class="card-body">
+                                <canvas class="chart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                                EMPLEADO DEL MES 
+                            </div>
+                            <div class="card-body">
+                                <canvas class="chart" width="200" height="50"></canvas>
+                                <img src="Sets/Imagenes/EJEM.jpg" alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <span><i class="bi bi-table me-2"></i></span> TRABAJADORES
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example"  class="table table-striped data-table" style="width: 100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Edad </th>
+                                                <th>Cargo</th>
+                                                <th>Fecha ingreso</th>
+                                                <th>Sueldo</th>
+                                            </tr>
+
+                                            <%
+                                                ArrayList<Empleado> lista = (ArrayList<Empleado>) request.getAttribute("lista");
+                                                for (int i = 0; i < lista.size(); i++) {
+                                                    Empleado em = lista.get(i);
+                                            %>
+                                            <tr>
+                                                <td><%=em.getIdEmp()%></td>
+                                                <td><%=em.getNom()%></td>
+                                                <td><%=em.getApellido()%></td>
+                                                <td><%=em.getEdad()%></td>
+                                                <td><%=em.getSexo()%></td>
+                                                <td><%=em.getDNI()%></td>
+                                                <td><%=em.getTelefono()%></td>
+                                                <td><%=em.getAAAAMMMMDDDD()%></td>
+                                                <td><%=em.getSueldo()%></td>
+                                            </tr>
+                                            <%
+                                                }
+                                            %>
+                                        </thead>
                                     </table>
                                 </div>
                             </div>

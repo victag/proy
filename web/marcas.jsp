@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="Modelo.marca"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,10 +12,12 @@
         <link href="Sets/CSS/Estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        
         <!-- Navegador y Sidebar -->
         <%@ include file="nav.jsp"%>
         <main class="mt-5 pt-3">
             <div class="container-fluid">
+                
                 <!-- Titulo -->
                 <div class="row">
                     <div class="col-md-12">
@@ -23,36 +27,41 @@
 
                 <!-- Buscador y Ventana modal -->
                 <div class="d-flex align-items-center justify-content-between">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar Marca </button>
-                    
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">Agregar Marca </button>
+
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Agregar Marca</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
+                                <form method="post" action="MarcasController?op=insertar">
+                                    
+                                    <!-- Titulo del modal --> 
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="ModalLabel">Agregar Marca</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    
+                                    <!-- Cuerpo del modal --> 
+                                    <div class="modal-body">                                   
                                         <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Marca</label>
-                                            <input type="text" class="form-control" id="recipient-name">
+                                            <label for="marca" class="col-form-label">Marca</label>
+                                            <input type="text" class="form-control" id="marca" name="txtMarca">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Descripcion</label>
-                                            <input type="text" class="form-control" id="message-text">
-                                        </div>                                           
-                                    </form>
-                                </div>
-                                <!-- Agregar Marca -->
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Agregar</button>
-                                </div>
+                                            <label for="descripcion" class="col-form-label">Descripcion</label>
+                                            <input type="text" class="form-control" id="descripcion" name="txtDescripcion">
+                                        </div>
+
+                                        <!-- Agregar Categoria -->
+                                        <div class="form-group mt-3">
+                                            <button type="submit" class="btn btn-primary">Agregar</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Buscador -->
                     <div class="input-brand input-group mt-3">
                         <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar" aria-describedby="button-addon2">
@@ -71,25 +80,67 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%
+                                ArrayList<marca> lista = (ArrayList<marca>) request.getAttribute("lista");
+                                for (int i = 0; i < lista.size(); i++) {
+                                    marca marc = lista.get(i);
+
+                            %>
                             <tr>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td><%@ include file="button.jsp"%></td>
+                                <td><%=marc.getNombre()%></td>
+                                <td><%=marc.getDescripcion()%></td>
+                                <td>
+                                    <!-- Toolbar -->
+                                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                        <div class="btn-group mr-2" role="group" aria-label="Basic example">
+                                            
+                                            <!-- Button trigger modal - Editar-->
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalEditar<%=i%>">Editar</button>
+                                            <div class="modal fade" id="modalEditar<%=i%>" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <form method="post" action="MarcasController?op=editar&idC=<%=marc.getCodigo()%>">
+                                                            
+                                                            <!-- Titulo del modal -->
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="ModalLabel">Editar Marca</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            
+                                                            <!-- Cuerpo del modal-->
+                                                            <div class="modal-body">                                   
+
+                                                                <div class="mb-3">
+                                                                    <label for="marca" class="col-form-label">Marca</label>
+                                                                    <input type="text" class="form-control" id="marca" name="txtMarcaEdit" value="<%=marc.getNombre()%>">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="descripcion" class="col-form-label">Descripcion</label>
+                                                                    <input type="text" class="form-control" id="descripcion" name="txtDescripEdit" value="<%=marc.getDescripcion()%>">
+                                                                </div>
+
+                                                                <!-- Editar Categoria -->
+                                                                <div class="form-group mt-3">
+                                                                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                                
+                                            <!-- Button trigger modal - Eliminar-->                    
+                                            <button type="button" class="btn btn-danger">Eliminar</button>                                         
+                                        </div>                           
+                                    </div>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td><%@ include file="button.jsp"%></td>
-                            </tr>
-                            <tr>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td><%@ include file="button.jsp"%></td>
-                            </tr>
+                            <%
+                                }
+                            %>
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </main>
     </body>

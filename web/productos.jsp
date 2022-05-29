@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="Modelo.producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,10 +23,9 @@
                     </div>
                 </div> 
 
-                <!-- Buscador y Ventana Modal -->
+                <!-- Buscador -->
                 <div>
-                    <div class="input-group mt-3">
-                        <!-- Buscador -->
+                    <div class="input-group mt-3">                     
                         <input type="text" class="form-control" placeholder="Buscar Categoria" aria-label="Buscar Categoria" aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
                     </div>
@@ -36,38 +37,31 @@
                         <thead class="table-light">
                             <tr>
                                 <th scope="col">CODIGO</th>
-                                <th scope="col">DESCRIPCION</th>
+                                <th scope="col">PRODUCTO</th>
                                 <th scope="col">PRECIO</th>
                                 <th scope="col">CANTIDAD</th>
                                 <th scope="col">CATEGORIA</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody>                            
+                            <%                               
+                                ArrayList<producto> lista = (ArrayList<producto>) request.getAttribute("lista");                              
+                                for (int i = 0; i < lista.size(); i++) {
+                                    producto prod = lista.get(i);
+                            %>
                             <tr>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
+                               <td><%=prod.getCodigo()%></td>
+                                <td><%=prod.getDescripcion()%></td>
+                                <td><%=prod.getPrecio()%></td>
+                                <td><%=prod.getCantidad()%></td>
+                                <td><%=prod.getCategoria()%></td>
                             </tr>
-                            <tr>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
-                            <tr>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                            </tr>
+                            <%
+                                }
+                            %>
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </main>
     </body>

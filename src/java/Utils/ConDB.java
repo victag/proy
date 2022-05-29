@@ -1,9 +1,7 @@
 
-package repos;
+package Utils;
 
 import java.sql.*;
-
-
 
 public class ConDB {
     
@@ -11,8 +9,8 @@ public class ConDB {
         Connection cn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            cn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/semana4", "root", "");
-            System.out.println("se conecto");
+            cn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_proy", "root", "");
+            System.out.println("Conexion Satisfactoria");
 
         } catch (Exception e) {
             System.out.println("no se conecto");
