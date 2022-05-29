@@ -1,5 +1,3 @@
-<%@page import="Modelo.Users"%>
-<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +10,7 @@
         <link href="Sets/CSS/Estilos.css" rel="stylesheet" type=""/>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-warning fixed-top">
        <div class="container-fluid">
          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample" >
            <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
@@ -42,7 +40,7 @@
        </div>
      </nav>
 
-     <div class="offcanvas offcanvas-start sidebar-nav bg-success" tabindex="-1" id="" >
+     <div class="offcanvas offcanvas-start sidebar-nav bg-warning" tabindex="-1" id="" >
        <div class="offcanvas-body p-0">
          <nav class="navbar-dark">
            <ul class="navbar-nav">
@@ -174,17 +172,20 @@
             <div id="flush-collapsesix" class="accordion-collapse collapse" aria-labelledby="flush-headingsix" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <ul>
-                        <li class="lista"><a class="nav-link text-dark" href="usuariosController?US=listar"> Lista de Usuarios</a></li>
+                       <li class="lista"><a class="nav-link text-dark" href="usuariosController?US=listar"> Lista de Usuarios</a></li>
                         <li class="lista"><a class="nav-link text-dark" href="empleadosController?op=listar">Trabajadores</a></li>
                     </ul>
-
                 </div>
             </div>
-               </nav>
-            </div>      
-                 
-        </div>  
- 
+            </div>     
+             
+               
+        </div>
+             
+            
+         </nav>
+       </div>
+     </div>
     
         
         
@@ -192,55 +193,62 @@
             <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-12">
-                    <h4 align="center">Listas de usuarios</h4>
+                    <h4 align="center">Agegar nuevo empleado</h4>
                   </div>
                 </div>
                &nbsp; 
                
-               <div class="form-group">
-                   <button class=" btn btn-sm bg-success"> <a href="agreUsu.jsp" class="nav-link px-3 active text-light">Agregar nuevo usuario</a></button>
-               </div>
-               &nbsp; 
-                <div class="row">  
-                        <div class="col-md-12 mb-3">     
+                <div class="row">
+      
+                        <div class="col-md-12 mb-3">
                           <div class="card">
-                            <div class="card-header">
-                              <span><i class="bi bi-table me-2"></i></span> TRABAJADORES
-                            </div>
-                            <div class="card-body">        
-                              <div class="conteiner">
-                                  <table class="table" >
-                                      <tr class="bg-success">
-                                          <th>Id</th><th>Logueo</th><th>Password</th><th>Nombre</th>
-                                          <th>Apellido</th><th>Edad</th><th>Sexo</th><th>Perfil</th>
-                                       </tr>
-                              <%
-                                  ArrayList<Users> lista=(ArrayList<Users>)request.getAttribute("lista");
-                                  for(int i=0; i<lista.size(); i++){
-                                  Users user=lista.get(i);
-                              %>
-                              <tr>
-                                  <td><%=user.getIdUsu()%></td>
-                                  <td><%=user.getLogeo()%></td>
-                                  <td><%=user.getPass()%></td>
-                                  <td><%=user.getNom()%></td>
-                                  <td><%=user.getApellido()%></td>
-                                  <td><%=user.getEdad()%></td>
-                                  <td><%=user.getGenero()%></td>
-                                  <td><%=user.getPerfil()%></td>
-                              </tr>
-                              <% } %>
+                            <div class="card-body">
+                                 <div class="conteiner">
+                                     <form action="empleadosController" >
+                                          <table class="table ">
+                                              <tr>
+                                                  <td class="text-primary">Ingrese ID: </td>
+                                                  <td><input type="text" name="txtId" class="form-control" required></td>
+                                                  <td class="texto">Ingrese Nombre: </td>
+                                                  <td><input type="text" name="txtNom" class="form-control" required></td>
+                                              </tr>&nbsp; &nbsp; 
+                                              <tr>
+                                                  <td>Ingrese Apellido: </td>
+                                                  <td><input type="text" name="txtApel" class="form-control" required></td>
+                                                  <td class="texto">Ingrese edad: </td>
+                                                  <td><input type="text" name="txtEdad" class="form-control" required></td>
+                                              </tr>&nbsp; &nbsp; 
+                                              <tr>
+                                                  <td>Ingrese Sexo: </td>
+                                                  <td><input type="text" name="txtSexo" class="form-control"required></td>
+                                                  <td>Ingrese DNI: </td>
+                                                  <td><input type="text" name="txtDNI" class="form-control" required></td>
+                                              </tr>&nbsp; &nbsp; 
+                                              <tr>
+                                                  <td>Ingrese Telefono: </td>
+                                                  <td><input type="text" name="txtEdad" class="form-control" required></td>
+                                                  <td>Ingrese Fecha: </td>
+                                                  <td><input type="text" name="txtFecha" class="form-control" required></td>
+                                              </tr>&nbsp; &nbsp; 
+                                              <tr>
+                                                  <td>Ingrese Sueldo: </td>
+                                                  <td><input type="text" name="txtSueldo" class="form-control" required></td>
+                                              </tr>
 
-                                  </table>
+                                              <tr>
+                                                  <td><input type="submit" name="btn" value="Registrar" class="form-control btn-warning mb-3"></td>
+                                              </tr>
+                                              <!-- dato oculto -->
+                                              <input type="hidden" name="op" value="insertar"/>
+                                          </table>
+                                       </form>   
+                                </div>
 
-
-                              </div>
                             </div>
                           </div>
                         </div>
+        
                 </div>
-                              
-                              
             </div>
         </main>
     </body>

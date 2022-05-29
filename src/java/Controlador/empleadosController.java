@@ -85,7 +85,39 @@ public class empleadosController extends HttpServlet {
         
         else if(op.equals("insertar"))
         {
+            int id=Integer.parseInt(request.getParameter("txtId"));
+            String nom=request.getParameter("txtNom");
+            String apel=request.getParameter("txtApel");
+            int edad=Integer.parseInt(request.getParameter("txtEdad"));
+            String sexo=request.getParameter("txtSexo");
+            String DNI=request.getParameter("txtDNI");
+            String tel=request.getParameter("txtTel");
+            String fecha=request.getParameter("txtFecha");
+            double sueldo=Double.parseDouble(request.getParameter("txtSueldo"));
            
+ 
+            try
+            {
+                PreparedStatement  sta=ConDB.getConnection().prepareStatement("insert into empleados values(?,?,?,?,?,?,?,?,?)");
+                
+                sta.setInt(1, id);
+                sta.setString(2, nom);
+                sta.setString(3, apel);
+                sta.setInt(4, edad);
+                sta.setString(5, sexo);
+                sta.setString(6,DNI);
+                sta.setString(7, tel);
+                sta.setString(8, fecha);
+                sta.setDouble(9, sueldo);
+                
+                //enviar executeQuery es solo para los select-- para lo demas es Upadte o otro
+                sta.executeUpdate();
+                request.getRequestDispatcher("Index.jsp").forward(request, response);
+            }
+            catch(Exception e){
+                
+            }
+               
         }
         else if(op.equals("eliminar"))
         {

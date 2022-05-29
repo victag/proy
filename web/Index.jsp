@@ -176,13 +176,10 @@
             <div id="flush-collapsesix" class="accordion-collapse collapse" aria-labelledby="flush-headingsix" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <ul>
-                        <li class="lista">
-                            <a href="usuariosController?US=listar"> Lista de Usuarios</a>
-                        </li>
-                        <li class="lista"><a href="empleadosController?op=listar">Trabajadores</a></li>
+                         <li class="lista"><a class="nav-link text-dark" href="usuariosController?US=listar">Lista de Usuarios</a></li>
+                        <li class="lista"><a class="nav-link text-dark" href="empleadosController?op=listar">Trabajadores</a></li>
                     </ul>
-
-                </div>
+                 </div>
             </div>
             </div>      
              

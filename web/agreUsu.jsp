@@ -11,7 +11,7 @@
         <link href="Sets/CSS/Estilos.css" rel="stylesheet" type=""/>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
        <div class="container-fluid">
          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample" >
            <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
@@ -41,7 +41,7 @@
        </div>
      </nav>
 
-     <div class="offcanvas offcanvas-start sidebar-nav bg-primary" tabindex="-1" id="" >
+     <div class="offcanvas offcanvas-start sidebar-nav bg-success" tabindex="-1" id="" >
        <div class="offcanvas-body p-0">
          <nav class="navbar-dark">
            <ul class="navbar-nav">
@@ -173,12 +173,9 @@
             <div id="flush-collapsesix" class="accordion-collapse collapse" aria-labelledby="flush-headingsix" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                     <ul>
-                        <li class="lista">
-                            <a href="usuariosController?US=listar"> Lista de Usuarios</a>
-                        </li>
-                        <li class="lista"><a href="empleadosController?op=listar">Trabajadores</a></li>
+                       <li class="lista"><a class="nav-link text-dark" href="usuariosController?US=listar"> Lista de Usuarios</a></li>
+                        <li class="lista"><a class="nav-link text-dark" href="empleadosController?op=listar">Trabajadores</a></li>
                     </ul>
-
                 </div>
             </div>
             </div>     
@@ -197,7 +194,7 @@
             <div class="container-fluid">
                 <div class="row">
                   <div class="col-md-12">
-                    <h4 align="center">SISTEMA DE CONTROL DE INVENTARIO</h4>
+                    <h4 align="center">Agegar nuevo usuario</h4>
                   </div>
                 </div>
                &nbsp; 
@@ -211,7 +208,7 @@
                                      <form action="usuariosController" >
                                           <table class="table ">
                                               <tr>
-                                                  <td>Ingrese ID: </td>
+                                                  <td >Ingrese ID: </td>
                                                   <td><input type="text" name="txtId" class="form-control" required></td>
                                                   <td class="texto">Ingrese Usuario: </td>
                                                   <td><input type="text" name="txtLog" class="form-control" required></td>
@@ -236,7 +233,7 @@
                                               </tr>&nbsp; &nbsp; 
 
                                               <tr>
-                                                  <td><input type="submit" name="btn" value="Registrar" class="form-control btn-primary mb-3"></td>
+                                                  <td><input type="submit" name="btn" value="Registrar" class="form-control btn-success mb-3"></td>
                                               </tr>
                                               <!-- dato oculto -->
                                               <input type="hidden" name="US" value="insertar"/>
