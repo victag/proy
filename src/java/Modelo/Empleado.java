@@ -4,19 +4,21 @@ package Modelo;
 
 public class Empleado 
 {
- private int idEmp,edad;
- private String nom,apellido, sexo,DNI,AAAAMMMMDDDD;
- private double telefono, sueldo;
+ private int idEmp;
+ private String nom,apellido;
+ private int edad;
+ private String sexo,DNI,telefono,fecha;
+ private double sueldo;
 
-    public Empleado(int idEmp, int edad, String nom, String apellido, String sexo, String DNI, String AAAAMMMMDDDD, double telefono, double sueldo) {
+    public Empleado(int idEmp, String nom, String apellido, int edad, String sexo, String DNI, String telefono, String fecha, double sueldo) {
         this.idEmp = idEmp;
-        this.edad = edad;
         this.nom = nom;
         this.apellido = apellido;
+        this.edad = edad;
         this.sexo = sexo;
         this.DNI = DNI;
-        this.AAAAMMMMDDDD = AAAAMMMMDDDD;
         this.telefono = telefono;
+        this.fecha = fecha;
         this.sueldo = sueldo;
     }
 
@@ -26,14 +28,6 @@ public class Empleado
 
     public void setIdEmp(int idEmp) {
         this.idEmp = idEmp;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     public String getNom() {
@@ -52,6 +46,14 @@ public class Empleado
         this.apellido = apellido;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     public String getSexo() {
         return sexo;
     }
@@ -68,20 +70,20 @@ public class Empleado
         this.DNI = DNI;
     }
 
-    public String getAAAAMMMMDDDD() {
-        return AAAAMMMMDDDD;
-    }
-
-    public void setAAAAMMMMDDDD(String AAAAMMMMDDDD) {
-        this.AAAAMMMMDDDD = AAAAMMMMDDDD;
-    }
-
-    public double getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(double telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public double getSueldo() {
@@ -91,8 +93,7 @@ public class Empleado
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
+
  
  
- 
-    
 }

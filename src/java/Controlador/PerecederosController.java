@@ -51,17 +51,12 @@ public class PerecederosController extends HttpServlet {
                 
                 ArrayList<perecedero> lista = new ArrayList<>();
                 while (rs.next()) {
-                    int codigoProd = rs.getInt(2);
-                    int codigoCategoria = rs.getInt(4);
-                    PreparedStatement staL = ConDB.getConnection().prepareStatement("select p.descripcion,c.categoria from pro_vencidos as pr inner join productos as p on p.id_Pro = pr.id_Pro inner join categoria as c on c.id_Categoria = pr.id_Categoria where pr.id_Pro=? and pr.id_Categoria=?");
-                    staL.setInt(1, codigoProd);
-                    staL.setInt(2, codigoCategoria);
-                    ResultSet rsL = staL.executeQuery();
-                    while (rsL.next()) {
-                        perecedero per = new perecedero(rs.getInt(1), rsL.getString(1), rs.getInt(3), rsL.getString(2),rs.getString(5),rs.getString(6));
+                    
+                    perecedero per = new perecedero(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4),rs.getString(5),rs.getString(6));
                     lista.add(per);
-                    }                   
-                }
+                    }
+                    
+            
                 request.setAttribute("lista", lista);
                 request.getRequestDispatcher("precederos.jsp").forward(request, response);
             } catch (IOException | SQLException | ServletException e) {
@@ -118,18 +113,12 @@ public class PerecederosController extends HttpServlet {
                 
                 ArrayList<perecedero> lista = new ArrayList<>();
                 while (rs.next()) {
-                    int codigoProd = rs.getInt(2);
-                    int codigoCategoria = rs.getInt(4);
-                    PreparedStatement staL = ConDB.getConnection().prepareStatement("select p.descripcion,c.categoria from pro_vencidos as pr inner join productos as p on p.id_Pro = pr.id_Pro inner join categoria as c on c.id_Categoria = pr.id_Categoria where pr.id_Pro=? and pr.id_Categoria=?");
-                    staL.setInt(1, codigoProd);
-                    staL.setInt(2, codigoCategoria);
-                    ResultSet rsL = staL.executeQuery();
-                    while (rsL.next()) {
-                        perecedero per = new perecedero(rs.getInt(1), rsL.getString(1), rs.getInt(3), rsL.getString(2),rs.getString(5),rs.getString(6));
+                    
+                    perecedero per = new perecedero(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4),rs.getString(5),rs.getString(6));
                     lista.add(per);
                     }
                     
-                }
+            
                 request.setAttribute("lista", lista);
                 request.getRequestDispatcher("precederos.jsp").forward(request, response);
             } catch (IOException | SQLException | ServletException e) {

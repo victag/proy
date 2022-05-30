@@ -1,23 +1,27 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Modelo;
 
 
-public class Usuarios 
-{ 
-    private int idUsu, edad;
+public class Users 
+{
+     private int idUsu;
     private String logeo, pass, nom, apellido,genero;
+    private int edad;
+    private String perfil;
 
-    public Usuarios() {
-    }
-
-    public Usuarios(int idUsu, int edad, String logeo, String pass, String nom, String apellido, String correo, String genero) {
+    public Users(int idUsu, String logeo, String pass, String nom, String apellido, String genero, int edad, String perfil) {
         this.idUsu = idUsu;
-        this.edad = edad;
         this.logeo = logeo;
         this.pass = pass;
         this.nom = nom;
         this.apellido = apellido;
         this.genero = genero;
+        this.edad = edad;
+        this.perfil = perfil;
     }
 
     public int getIdUsu() {
@@ -26,14 +30,6 @@ public class Usuarios
 
     public void setIdUsu(int idUsu) {
         this.idUsu = idUsu;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     public String getLogeo() {
@@ -76,6 +72,21 @@ public class Usuarios
         this.genero = genero;
     }
 
-  
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
+    }
     
+
 }

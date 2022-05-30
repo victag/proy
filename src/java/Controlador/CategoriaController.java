@@ -43,27 +43,9 @@ public class CategoriaController extends HttpServlet {
         processRequest(request, response);        
         //Parametro que elige la operacion a realizar
         String op = request.getParameter("op");
-        
-        //Opcion insertar
-        if (op.equals("insertar")) {
-            String categoria = request.getParameter("txtCat");
-            int stock = Integer.parseInt(request.getParameter("txtStock"));
-            double precio = Double.parseDouble(request.getParameter("txtPrecio"));
-            try {
-                PreparedStatement sta = ConDB.getConnection().prepareStatement("insert into categoria (categoria,stock,precio) values(?,?,?)");
-                sta.setString(1, categoria);
-                sta.setInt(2, stock);
-                sta.setDouble(3, precio);
-                sta.executeUpdate();
-                request.getRequestDispatcher("categoria.jsp").forward(request, response);
-
-            } catch (IOException | SQLException | ServletException e) {
-                System.out.println("Error al insertar elemento");
-            }
-        } 
-        
+            
         //Opcion listar
-        else if (op.equals("listar")) {
+        if (op.equals("listar")) {
             try {
                 
                 PreparedStatement sta = ConDB.getConnection().prepareStatement("select * from categoria");
@@ -80,7 +62,22 @@ public class CategoriaController extends HttpServlet {
             } catch (IOException | SQLException | ServletException e) {
                  System.out.println("Error al mostrar elmentos");
             }
-        }        
+        }  
+        
+        else if (op.equals("eliminar")) {
+            try {
+                int id = Integer.parseInt(request.getParameter("idE"));
+                PreparedStatement sta = ConDB.getConnection().prepareStatement("delete from categoria where id_Categoria=?");
+                sta.setInt(1, id);
+                sta.executeQuery();
+                request.getRequestDispatcher("categoria.jsp").forward(request, response);
+            } catch (IOException | SQLException | ServletException e) {
+                 System.out.println("Error al mostrar elmentos");
+            }
+        }
+        
+       
+        
     }
 
     /**
@@ -136,7 +133,26 @@ public class CategoriaController extends HttpServlet {
             } catch (IOException | SQLException | ServletException e) {
                  System.out.println("Error al mostrar elmentos");
             }
-        }           
+        } 
+        
+        else if (op.equals("insertar")) {
+            String categoria = request.getParameter("txtCat");
+            int stock = Integer.parseInt(request.getParameter("txtStock"));
+            double precio = Double.parseDouble(request.getParameter("txtPrecio"));
+            try {
+                PreparedStatement sta = ConDB.getConnection().prepareStatement("insert into categoria (categoria,stock,precio) values(?,?,?)");
+                sta.setString(1, categoria);
+                sta.setInt(2, stock);
+                sta.setDouble(3, precio);
+                sta.executeUpdate();
+                request.getRequestDispatcher("CategoriaController?op=listar").forward(request, response);
+
+            } catch (IOException | SQLException | ServletException e) {
+                System.out.println("Error al insertar elemento");
+            }
+        } 
+        
+        
     }
 
     /**

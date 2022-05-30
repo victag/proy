@@ -20,6 +20,14 @@
         <servlet-name>PerecederosController</servlet-name>
         <servlet-class>Controlador.PerecederosController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>empleadosController</servlet-name>
+        <servlet-class>Controlador.empleadosController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>usuariosController</servlet-name>
+        <servlet-class>Controlador.usuariosController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>PerecederosController</servlet-name>
         <url-pattern>/PerecederosController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>empleadosController</servlet-name>
+        <url-pattern>/empleadosController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>usuariosController</servlet-name>
+        <url-pattern>/usuariosController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -12,7 +12,7 @@
         <link href="Sets/CSS/Estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        
+
         <!-- Navegador y Sidebar -->
         <%@ include file="nav.jsp"%>
         <main class="mt-5 pt-3">
@@ -35,7 +35,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <form method="post" action="CategoriaController?op=insertar">
-                                    
+
                                     <!-- Titulo del modal --> 
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="ModalLabel">Agregar Categoria</h5>
@@ -102,20 +102,21 @@
                                     <!-- Toolbar --> 
                                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                         <div class="btn-group mr-2" role="group" aria-label="Basic example">
-                                            
+
                                             <!-- Button trigger modal - Editar-->
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalEditar<%=i%>">Editar</button>
+
                                             <div class="modal fade" id="modalEditar<%=i%>" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg">
                                                     <div class="modal-content">
                                                         <form method="post" action="CategoriaController?op=editar&idC=<%=cat.getCodigo()%>">
-                                                            
+
                                                             <!-- Titulo del modal -->
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title" id="ModalLabel">Editar Categoria</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                            
+
                                                             <!-- Cuerpo del modal -->
                                                             <div class="modal-body">                                   
                                                                 <div class="row">
@@ -142,9 +143,35 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                                    
+
                                             <!-- Button trigger modal - Eliminar-->
-                                            <button type="button" class="btn btn-danger">Eliminar</button>                                         
+                                            <button type="button" class="btn btn-danger" data-bs-target="#modalEliminar<%=i%>">Eliminar</button> 
+
+                                            <div class="modal fade" id="modalEliminar<%=i%>" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <form method="post" action="CategoriaController?op=eliminar&idE=<%=cat.getCodigo()%>">
+
+                                                            <!-- Titulo del modal -->
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="ModalLabel">Editar Categoria</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+
+                                                            <!-- Cuerpo del modal -->
+                                                            <div class="modal-body">  
+                                                                ¿Desea eliminar este registro?
+
+                                                                <!-- Eliminar Categoria -->
+                                                                <div class="form-group mt-3">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="submit" class="btn btn-primary">Eliminar</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>                           
                                     </div>
                                 </td>
@@ -158,4 +185,16 @@
             </div>
         </main>
     </body>
+
+    <script type="text/javascript">
+        function Confirm(b) {
+            var mensaje = confirm("¿Desea eliminar este registro?");
+            if (mensaje) {
+                document.getElementById("formEliminar"+b).submit();                        
+            }
+
+            else {              
+            }
+        }
+    </script>
 </html>

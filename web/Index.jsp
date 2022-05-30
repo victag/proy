@@ -12,24 +12,15 @@
         <link href="Sets/CSS/Estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="offcanvasExample" >
                     <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
                 </button>
-                <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"  href="Index.jsp">FERRETERIA LILY</a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#topNavBar"
-                    aria-controls="topNavBar"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                    >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"  href="#">FERRETERIA LILY</a>
+
                 <div class="collapse navbar-collapse">
+
                     <form class="d-flex ms-auto my-3 my-lg-0">
                         <div class="input-group">
                             <input class="form-control" type="search" placeholder="Buscar" aria-label="Search"/>
@@ -52,104 +43,104 @@
             </div>
         </nav>
 
-        <div class="offcanvas offcanvas-start sidebar-nav bg-dark" tabindex="-1">
+        <div class="offcanvas offcanvas-start sidebar-nav bg-primary" tabindex="-1">
             <div class="offcanvas-body p-0">
                 <nav class="navbar-dark">
                     <ul class="navbar-nav">
                         <li>
-                            <div class="text-success small fw-bold text-uppercase px-3"> MENÚ </div>
+                            <div class="text-success small fw-bold text-uppercase px-3"> Bienvenido <%%> </div>
                         </li>
                         <li>
-                            <a href="#" class="nav-link px-3 active">
+                            <a href="Index.jsp" class="nav-link px-3 active">
                                 <span class="me-2"><i class="bi bi-speedometer2"></i></span>
-                                <span>INICIO <i class="fa-solid fa-house-chimney"></i></span>
+                                <span class="me-2">INICIO <i class="fa-solid fa-house-chimney "></i></span>
                             </a>
                         </li>
                     </ul>
+                </nav>   
 
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    ALMACEN
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li class="lista"> <a href="CategoriaController?op=listar" >Categorias</a></li>
-                                        <li class="lista"> <a href="MarcasController?op=listar">Marcas</a></li>
-                                        <li class="lista"> <a href="ProductoController?op=listar">Productos</a></li>
-                                    </ul>
-                                </div>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item ">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                ALMACEN
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li class="lista"> <a href="ProductoController?op=listar">Productos</a></li>
+                                    <li class="lista"> <a href="CategoriaController?op=listar" >Categorias</a></li>
+                                    <li class="lista"> <a href="MarcasController?op=listar">Marcas</a></li>
+                                </ul>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingseven">
-                                <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseven" aria-expanded="false" aria-controls="flush-collapseseven">
-                                    PRODUCTOS PRECEDEROS
-                                </button>
-                            </h2>
-                            <div id="flush-collapseseven" class="accordion-collapse collapse" aria-labelledby="flush-headingseven" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li class="lista"> <a href="PerecederosController?op=listar">Lista de productos</a></li>
-                                    </ul>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingseven">
+                            <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseseven" aria-expanded="false" aria-controls="flush-collapseseven">
+                                PRODUCTOS PERECEDEROS
+                            </button>
+                        </h2>
+                        <div id="flush-collapseseven" class="accordion-collapse collapse" aria-labelledby="flush-headingseven" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li class="lista"> <a href="PerecederosController?op=listar" >Lista de productos</a></li>
+                                </ul>
 
-                                </div>
-                            </div>
-                        </div>         
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    COTIZACION
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li class="lista">Generar cotizaion</li>
-                                        <li class="lista">Ver cotizaciones</li>
-                                    </ul>
-
-                                </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
-                                <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                    VENTAS
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li class="lista">Ventas diarias </li>
-                                        <li class="lista">Ventas del Mes</li>
-                                        <li class="lista">ventas Realizadas</li>
-                                    </ul>
+                    </div>         
 
-                                </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                COTIZACION
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li class="lista"><a href="#">Generar cotizacion</a></li>
+                                    <li class="lista"><a  href="#">Ver cotizaciones</a></li>
+                                </ul>
+
                             </div>
                         </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                VENTAS
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li class="lista">Ventas diarias </li>
+                                    <li class="lista">Ventas del Mes</li>
+                                    <li class="lista">ventas Realizadas</li>
+                                </ul>
 
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingfour">
-                                <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
-                                    APARTADOS
-                                </button>
-                            </h2>
-                            <div id="flush-collapsefour" class="accordion-collapse collapse" aria-labelledby="flush-headingfour" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <ul>
-                                        <li class="lista">Apartar productos</li>
-                                        <li class="lista">Apartados por fecha</li>
-                                        <li class="lista">consultar</li>
-                                    </ul>
+                            </div>
+                        </div>
+                    </div>
 
-                                </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingfour">
+                            <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefour" aria-expanded="false" aria-controls="flush-collapsefour">
+                                APARTADOS
+                            </button>
+                        </h2>
+                        <div id="flush-collapsefour" class="accordion-collapse collapse" aria-labelledby="flush-headingfour" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li class="lista">Apartar productos</li>
+                                    <li class="lista">Apartados por fecha</li>
+                                    <li class="lista">consultar</li>
+                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -157,7 +148,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingfive">
                             <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
-                                INVENTARIOS
+                                INVETARIO
                             </button>
                         </h2>
                         <div id="flush-collapsefive" class="accordion-collapse collapse" aria-labelledby="flush-headingfive" data-bs-parent="#accordionFlushExample">
@@ -174,24 +165,21 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingsix">
                             <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsesix" aria-expanded="false" aria-controls="flush-collapsesix">
-                                USUARIOS
+                                TRABAJADORES
                             </button>
                         </h2>
                         <div id="flush-collapsesix" class="accordion-collapse collapse" aria-labelledby="flush-headingsix" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <ul>
-                                    <li class="lista">Chat de Usuarios</li>
-                                    <li class="lista">Lista de Usuarios</li>
+                                    <li class="lista"><a class="nav-link text-dark" href="usuariosController?US=listar">Lista de Usuarios</a></li>
+                                    <li class="lista"><a class="nav-link text-dark" href="empleadosController?op=listar">Trabajadores</a></li>
                                 </ul>
-
                             </div>
                         </div>
-                    </div>    
-                </nav>
+                    </div> 
+                </div>                   
             </div>
         </div>
-
-
 
         <main class="mt-5 pt-3">
             <div class="container-fluid">
@@ -215,7 +203,7 @@
                         </div>
                     </div>
                     <div class="trec col-md-3 mb-3">
-                        <div class="card bg-warning text-dark h-100">
+                        <div class="card bg-warning text-white h-100">
                             <div class="card-body py-3">VENTAS</div>
                             <div class="card-footer d-flex">
                                 Ver detalles 
@@ -246,7 +234,7 @@
                         <div class="card bg-danger text-white h-100">
                             <div class="card-body py-3">CAJA</div>
                             <div class="deta card-footer d-flex">
-                                <a href="url"> Ver detalles</a>
+                                 Ver detalles
                             </div>
                         </div>
                     </div>
@@ -270,147 +258,21 @@
 
                     <div class="trec col-md-3 mb-3">
                         <div class="card bg-primary text-white h-100">
-                            <div class="card-body py-3">ALAMCEN </div>
+                            <div class="card-body py-3">ALMACEN </div>
                             <div class="card-footer d-flex">
-                                Ver detalles
-                            </div>
-                        </div>
-                    </div>
-                </div>    
-
-
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
-                            <div class="card-header">
-                                <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                                Area 
-                            </div>
-                            <div class="card-body">
-                                <canvas class="chart" width="400" height="200"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
-                            <div class="card-header">
-                                <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                                EMPLEADO DEL MES :V
-                            </div>
-                            <div class="card-body">
-                                <canvas class="chart" width="200" height="50"></canvas>
-                                <img src="Sets/Imagenes/EJEM.jpg" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <<<<<<< HEAD
-                <div class="row">
-                    <div class="col-md-12 mb-3">
-                        <div class="card">
-                            <div class="card-header">
-                                <span><i class="bi bi-table me-2"></i></span> TRABAJADORES
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table id="example"  class="table table-striped data-table" style="width: 100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Edad </th>
-                                                <th>Cargo</th>
-                                                <th>Fecha ingreso</th>
-                                                <th>Sueldo</th>
-                                            </tr>
-                                        </thead>
-                                        <tr>
-                                            <th>     </th>
-                                            <th>     </th>
-                                            <th>     </th>
-                                            <th>     </th>
-                                            <th>     </th>  
-                                            <th>     </th>
-                                        </tr>
-                                        <tr>
-                                            <th>     </th>
-                                            <th>     </th>
-                                            <th>     </th>
-                                            <th>     </th>
-                                            <th>     </th>
-                                            <th>     </th>
-                                        </tr>
-                                    </table>
-                                </div>
+                                <a href="ProductoController?op=listar" class="link-light">Ver detalles</a>
                             </div>
                         </div>
                     </div>
                 </div>    
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
-                            <div class="card-header">
-                                <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                                Area 
-                            </div>
-                            <div class="card-body">
-                                <canvas class="chart" width="400" height="200"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="card h-100">
-                            <div class="card-header">
-                                <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-                                EMPLEADO DEL MES 
-                            </div>
-                            <div class="card-body">
-                                <canvas class="chart" width="200" height="50"></canvas>
-                                <img src="Sets/Imagenes/EJEM.jpg" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col-md-12 mb-3">
                         <div class="card">
                             <div class="card-header">
-                                <span><i class="bi bi-table me-2"></i></span> TRABAJADORES
+                                <span><i class="bi bi-table me-2"></i></span> 
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table id="example"  class="table table-striped data-table" style="width: 100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Edad </th>
-                                                <th>Cargo</th>
-                                                <th>Fecha ingreso</th>
-                                                <th>Sueldo</th>
-                                            </tr>
-
-                                            <%
-                                                ArrayList<Empleado> lista = (ArrayList<Empleado>) request.getAttribute("lista");
-                                                for (int i = 0; i < lista.size(); i++) {
-                                                    Empleado em = lista.get(i);
-                                            %>
-                                            <tr>
-                                                <td><%=em.getIdEmp()%></td>
-                                                <td><%=em.getNom()%></td>
-                                                <td><%=em.getApellido()%></td>
-                                                <td><%=em.getEdad()%></td>
-                                                <td><%=em.getSexo()%></td>
-                                                <td><%=em.getDNI()%></td>
-                                                <td><%=em.getTelefono()%></td>
-                                                <td><%=em.getAAAAMMMMDDDD()%></td>
-                                                <td><%=em.getSueldo()%></td>
-                                            </tr>
-                                            <%
-                                                }
-                                            %>
-                                        </thead>
-                                    </table>
                                 </div>
                             </div>
                         </div>

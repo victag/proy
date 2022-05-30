@@ -19,7 +19,7 @@
                 <div class="row">
                     <!-- Titulo -->
                     <div class="col-md-12">
-                        <h4>PRODUCTOS</h4>
+                        <h4>PRODUCTOS PERECEDEROS</h4>
                     </div>
                 </div> 
 

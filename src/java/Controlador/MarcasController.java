@@ -42,22 +42,8 @@ public class MarcasController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);    
-        String op = request.getParameter("op");
-        if (op.equals("insertar")) {
-            String marca = request.getParameter("txtMarca");
-            String descrip = request.getParameter("txtDescripcion");
-            try {
-                PreparedStatement sta = ConDB.getConnection().prepareStatement("insert into marca (marca,descripcion) values(?,?)");
-                sta.setString(1, marca);
-                sta.setString(2, descrip);
-                sta.executeUpdate();
-                request.getRequestDispatcher("MarcasController?op=listar").forward(request, response);
-
-            } catch (IOException | SQLException | ServletException e) {
-                System.out.println("Error al insertar elemento");
-            }
-        }
-        else if (op.equals("listar")) {
+        String op = request.getParameter("op");       
+        if (op.equals("listar")) {
             try {
 
                 PreparedStatement sta = ConDB.getConnection().prepareStatement("select * from marca");
@@ -123,7 +109,22 @@ public class MarcasController extends HttpServlet {
             } catch (IOException | SQLException | ServletException e) {
                 System.out.println("Error al mostrar elmentos");
             }
-        }       
+        }    
+        
+        else if (op.equals("insertar")) {
+            String marca = request.getParameter("txtMarca");
+            String descrip = request.getParameter("txtDescripcion");
+            try {
+                PreparedStatement sta = ConDB.getConnection().prepareStatement("insert into marca (marca,descripcion) values(?,?)");
+                sta.setString(1, marca);
+                sta.setString(2, descrip);
+                sta.executeUpdate();
+                request.getRequestDispatcher("MarcasController?op=listar").forward(request, response);
+
+            } catch (IOException | SQLException | ServletException e) {
+                System.out.println("Error al insertar elemento");
+            }
+        }
     }
 
     /**
