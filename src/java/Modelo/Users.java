@@ -8,7 +8,7 @@ package Modelo;
 
 public class Users 
 {
-     private int idUsu;
+    private int idUsu;
     private String logeo, pass, nom, apellido,genero;
     private int edad;
     private String perfil;

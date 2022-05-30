@@ -1,6 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="Modelo.categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ include file="user.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>

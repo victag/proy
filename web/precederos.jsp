@@ -1,6 +1,7 @@
 <%@page import="Modelo.perecedero"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ include file="user.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>

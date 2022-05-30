@@ -11,17 +11,39 @@
         <link href="Sets/CSS/Login.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div class="login-box">
-            <a href="Index.jsp"><img class="fav" src="Sets/Imagenes/usuario.png" alt=""></a>
-            <h1>Ingrese su Usuario</h1>
+        
+        <h6>
+            <%if(request.getAttribute("msg")!=null){String msg=request.getAttribute("msg").toString();%>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+             <%=msg%>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%}%>
+        </h6>
+        <h6>
+            <%if(request.getParameter("msg2")!=null){String msg2=request.getParameter("msg2").toString();%>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+             <%=msg2%>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <%}%>
+        </h6>
+        
+       <div class="login-box">
+                <a href="Index.jsp"><img class="fav" src="Sets/Imagenes/usuario.png" alt=""></a>
+                <h1>Ingrese su Usuario</h1>
 
-            <form method="post" action="loginController">
-                <label>Usuario</label>
-                <input class="in" type="text" name="txtUsu" placeholder="ingrese su usuario" required>
-                <label for="password">Contraseña</label>
-                <input class="in" type="text"  name="txtPass" placeholder="Ingrese su contraseña" required><br><br>
-                <input type="submit" class="btn btn-warning mt-2" name="btn-login" value="Ingresar">
-            </form>
-        </div>
+                <form method="post" action="logiController">
+                    <label>Usuario</label>
+                    <input class="in" type="text" name="txtUsu" placeholder="ingrese su usuario" required>
+
+                    <label>Contraseña</label>
+                    <input class="in" type="password"  name="txtPass" placeholder="Ingrese su contraseña" required><br><br>
+                    <input type="submit" class="btn btn-warning mt-2" name="btn-login" value="Ingresar">
+                     <input type="hidden" name="op" value="login"/>
+                   
+                </form>
+
+            </div>
     </body>
 </html>
