@@ -131,7 +131,8 @@
                                             </div>
                                                                 
                                             <!-- Button trigger modal - Eliminar-->                    
-                                            <button type="button" class="btn btn-danger">Eliminar</button>                                         
+          
+                                            <a onclick="return confirm('¿Esta seguro de eliminar este registro?')" href="MarcasController?op=eliminar&idE=<%=marc.getCodigo()%>" class="btn btn-danger link-light" style="text-decoration: none">Eliminar</a>
                                         </div>                           
                                     </div>
                                 </td>

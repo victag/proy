@@ -135,7 +135,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingfive">
                     <button class="menu accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsefive" aria-expanded="false" aria-controls="flush-collapsefive">
-                        INVETARIOS
+                        INVENTARIOS
                     </button>
                 </h2>
                 <div id="flush-collapsefive" class="accordion-collapse collapse" aria-labelledby="flush-headingfive" data-bs-parent="#accordionFlushExample">

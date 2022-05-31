@@ -145,34 +145,9 @@
                                                 </div>
                                             </div>
 
-                                            <!-- Button trigger modal - Eliminar-->
-                                            <button type="button" class="btn btn-danger" data-bs-target="#modalEliminar<%=i%>">Eliminar</button> 
-
-                                            <div class="modal fade" id="modalEliminar<%=i%>" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <form method="post" action="CategoriaController?op=eliminar&idE=<%=cat.getCodigo()%>">
-
-                                                            <!-- Titulo del modal -->
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="ModalLabel">Editar Categoria</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-
-                                                            <!-- Cuerpo del modal -->
-                                                            <div class="modal-body">  
-                                                                ¿Desea eliminar este registro?
-
-                                                                <!-- Eliminar Categoria -->
-                                                                <div class="form-group mt-3">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                    <button type="submit" class="btn btn-primary">Eliminar</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <!-- Button  - Eliminar-->
+                                            
+                                            <a onclick="return confirm('¿Esta seguro de eliminar este registro?')" href="CategoriaController?op=eliminar&idE=<%=cat.getCodigo()%>" class="btn btn-danger link-light" style="text-decoration: none">Eliminar</a>                         
                                         </div>                           
                                     </div>
                                 </td>
@@ -186,16 +161,4 @@
             </div>
         </main>
     </body>
-
-    <script type="text/javascript">
-        function Confirm(b) {
-            var mensaje = confirm("¿Desea eliminar este registro?");
-            if (mensaje) {
-                document.getElementById("formEliminar"+b).submit();                        
-            }
-
-            else {              
-            }
-        }
-    </script>
 </html>

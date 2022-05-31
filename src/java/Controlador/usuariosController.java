@@ -97,12 +97,12 @@ public class usuariosController extends HttpServlet {
                 
                 sta.setInt(1, id);
                 sta.setString(2, log);
-                sta.setString(4, pass);
+                sta.setString(3, pass);
                 sta.setString(4, nom);
-                sta.setString(4, ape);
-                sta.setString(4, genero);
-                sta.setInt(3, edad);
-                sta.setString(4, perfil);
+                sta.setString(5, ape);
+                sta.setString(6, genero);
+                sta.setInt(7, edad);
+                sta.setString(8, perfil);
                 
                 //enviar executeQuery es solo para los select-- para lo demas es Upadte o otro
                 sta.executeUpdate();

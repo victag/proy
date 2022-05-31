@@ -61,6 +61,18 @@ public class MarcasController extends HttpServlet {
                 System.out.println("Error al mostrar elmentos");
             }
         }
+        else if (op.equals("eliminar")) {
+            try {
+                int id = Integer.parseInt(request.getParameter("idE"));
+                PreparedStatement sta = ConDB.getConnection().prepareStatement("delete from marca where id_Marca=?");
+                sta.setInt(1, id);
+                sta.executeUpdate();
+                request.getRequestDispatcher("MarcasController?op=listar").forward(request, response);
+            } catch (IOException | SQLException | ServletException e) {
+                 System.out.println("Error al mostrar elmentos");
+            }
+        }
+        
     }
 
     /**
@@ -125,6 +137,7 @@ public class MarcasController extends HttpServlet {
                 System.out.println("Error al insertar elemento");
             }
         }
+        
     }
 
     /**

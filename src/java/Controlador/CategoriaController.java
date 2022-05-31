@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import Modelo.categoria;
+import static java.lang.System.out;
 
 public class CategoriaController extends HttpServlet {
 
@@ -39,8 +40,7 @@ public class CategoriaController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);        
+            throws ServletException, IOException {   
         //Parametro que elige la operacion a realizar
         String op = request.getParameter("op");
             
@@ -63,21 +63,18 @@ public class CategoriaController extends HttpServlet {
                  System.out.println("Error al mostrar elmentos");
             }
         }  
-        
         else if (op.equals("eliminar")) {
             try {
                 int id = Integer.parseInt(request.getParameter("idE"));
+                log(""+id);
                 PreparedStatement sta = ConDB.getConnection().prepareStatement("delete from categoria where id_Categoria=?");
                 sta.setInt(1, id);
-                sta.executeQuery();
-                request.getRequestDispatcher("categoria.jsp").forward(request, response);
+                sta.executeUpdate();
+                request.getRequestDispatcher("CategoriaController?op=listar").forward(request, response);
             } catch (IOException | SQLException | ServletException e) {
-                 System.out.println("Error al mostrar elmentos");
+                 System.out.println("Error al eliminar elemento");
             }
-        }
-        
-       
-        
+        }      
     }
 
     /**
@@ -91,7 +88,6 @@ public class CategoriaController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);      
         //Parametro que elige la operacion a realizar
         String op = request.getParameter("op");   
         
