@@ -29,7 +29,7 @@
 
                     <div class="trec col-md-3 mb-3">
                         <div class="card bg-primary text-white h-100">
-                            <div class="card-body py-3">PROVEDORES</div>
+                            <div class="card-body py-3">PROVEEDORES</div>
                             <div class="card-footer d-flex">
                                 Ver detalles
                                 <span class="ms-auto">
@@ -97,7 +97,7 @@
                         <div class="card bg-primary text-white h-100">
                             <div class="card-body py-3">ALMACEN </div>
                             <div class="card-footer d-flex">
-                                Ver detalles
+                                <a href="ProductoController?op=listar" class="link-light" style="text-decoration: none">Ver detalles</a>
                             </div>
                         </div>
                     </div>

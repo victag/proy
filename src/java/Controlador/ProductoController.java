@@ -43,6 +43,8 @@ public class ProductoController extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         String op = request.getParameter("op");
+        
+        //Opcion listar
         if (op.equals("listar")) {
             try {
 

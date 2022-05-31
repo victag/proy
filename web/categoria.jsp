@@ -145,7 +145,7 @@
                                                 </div>
                                             </div>
 
-                                            <!-- Button  - Eliminar-->
+                                            <!-- Eliminar - Ventana de confirmacion-->
                                             
                                             <a onclick="return confirm('¿Esta seguro de eliminar este registro?')" href="CategoriaController?op=eliminar&idE=<%=cat.getCodigo()%>" class="btn btn-danger link-light" style="text-decoration: none">Eliminar</a>                         
                                         </div>                           

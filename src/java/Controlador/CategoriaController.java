@@ -63,6 +63,7 @@ public class CategoriaController extends HttpServlet {
                  System.out.println("Error al mostrar elmentos");
             }
         }  
+        //Opcion eliminar
         else if (op.equals("eliminar")) {
             try {
                 int id = Integer.parseInt(request.getParameter("idE"));
@@ -131,6 +132,7 @@ public class CategoriaController extends HttpServlet {
             }
         } 
         
+        //Opcion insertar
         else if (op.equals("insertar")) {
             String categoria = request.getParameter("txtCat");
             int stock = Integer.parseInt(request.getParameter("txtStock"));

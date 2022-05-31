@@ -41,6 +41,7 @@ public class PerecederosController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        //Parametro que elige la operacion a realizar
         String op = request.getParameter("op");
          
         if (op.equals("listar")) {
@@ -77,7 +78,11 @@ public class PerecederosController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        //Parametro que elige la operacion a realizar
         String op = request.getParameter("op");
+        
+        //Opcion insertar
         if (op.equals("insertar")) {
             String nombre = request.getParameter("txtProd");
             int cantidad = Integer.parseInt(request.getParameter("txtCant"));
@@ -105,6 +110,7 @@ public class PerecederosController extends HttpServlet {
             }
         }
         
+        //Opcion listar
         else if (op.equals("listar")) {
             try {
                 

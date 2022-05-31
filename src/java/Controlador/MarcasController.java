@@ -41,8 +41,12 @@ public class MarcasController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);    
-        String op = request.getParameter("op");       
+        processRequest(request, response);   
+        
+        //Parametro que elige la operacion a realizar
+        String op = request.getParameter("op"); 
+        
+        //Opcion listar
         if (op.equals("listar")) {
             try {
 
@@ -61,6 +65,8 @@ public class MarcasController extends HttpServlet {
                 System.out.println("Error al mostrar elmentos");
             }
         }
+        
+        //Opcion eliminar
         else if (op.equals("eliminar")) {
             try {
                 int id = Integer.parseInt(request.getParameter("idE"));
@@ -69,7 +75,7 @@ public class MarcasController extends HttpServlet {
                 sta.executeUpdate();
                 request.getRequestDispatcher("MarcasController?op=listar").forward(request, response);
             } catch (IOException | SQLException | ServletException e) {
-                 System.out.println("Error al mostrar elmentos");
+                 System.out.println("Error al eliminar elementos");
             }
         }
         
@@ -87,8 +93,10 @@ public class MarcasController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        //Parametro que elige la operacion a realizar
         String op = request.getParameter("op");
 
+        //Opcion editar
         if (op.equals("editar")) {
             int id = Integer.parseInt(request.getParameter("idC"));
             String marca = request.getParameter("txtMarcaEdit");
@@ -104,7 +112,10 @@ public class MarcasController extends HttpServlet {
             } catch (IOException | SQLException | ServletException e) {
                 System.out.println("Error al actualizar elemento");
             }
-        } else if (op.equals("listar")) {
+        } 
+        
+        //Opcion listar
+        else if (op.equals("listar")) {
             try {
 
                 PreparedStatement sta = ConDB.getConnection().prepareStatement("select * from marca");
@@ -123,6 +134,7 @@ public class MarcasController extends HttpServlet {
             }
         }    
         
+        //Opcion insertar
         else if (op.equals("insertar")) {
             String marca = request.getParameter("txtMarca");
             String descrip = request.getParameter("txtDescripcion");

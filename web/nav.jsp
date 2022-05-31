@@ -55,9 +55,9 @@
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                         <ul>
-                            <li class="lista"> <a href="ProductoController?op=listar">Productos</a></li>
-                            <li class="lista"> <a href="CategoriaController?op=listar" >Categorias</a></li>
-                            <li class="lista"> <a href="MarcasController?op=listar">Marcas</a></li>
+                            <li class="lista"> <a href="ProductoController?op=listar" class="link-dark" style="text-decoration: none">Productos</a></li>
+                            <li class="lista"> <a href="CategoriaController?op=listar" class="link-dark" style="text-decoration: none">Categorias</a></li>
+                            <li class="lista"> <a href="MarcasController?op=listar" class="link-dark" style="text-decoration: none">Marcas</a></li>
                         </ul>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                     <div class="accordion-body">
                         <ul>
                             <li class="lista">Abrir nuevo inventario</li>
-                            <li class="lista">Eliminar inventarion</li>
+                            <li class="lista">Eliminar inventario</li>
                         </ul>
 
                     </div>
